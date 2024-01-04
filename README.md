@@ -6,7 +6,7 @@
 * STS : `Spring Tools 3 Add-On for Spring Tools 4 3.9.22.RELEASE`
 * WAS : `Tomcat 9.0`
 * DB : `MariaDB`
-* DB 테이블
+* Theater 테이블
 
 
 |**Theater**|column|
