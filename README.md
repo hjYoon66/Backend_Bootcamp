@@ -1,3 +1,5 @@
+GitHub supports emoji!
+##:computer:
 # 1주차 과제
 ## 개발 환경
 * Java 8
