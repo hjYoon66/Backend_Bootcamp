@@ -18,5 +18,9 @@ public class MovieServiceImpl implements MovieService {
  
         return dao.selectMovie();
     }
- 
+    
+    @Override
+    public List<MovieVO> findMovieByName(String movieName) throws Exception{
+    	return dao.findMovieByName(movieName);
+    }
 }

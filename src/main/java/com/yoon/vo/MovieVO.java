@@ -2,6 +2,10 @@ package com.yoon.vo;
 
 public class MovieVO {
 	private int movie_id;
+	private String movie_name;
+    private String director;
+    private String type;
+   
     public int getMovie_id() {
 		return movie_id;
 	}
@@ -26,7 +30,4 @@ public class MovieVO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	private String movie_name;
-    private String director;
-    private String type;
 }
