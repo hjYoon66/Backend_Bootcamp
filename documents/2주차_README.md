@@ -61,9 +61,11 @@
 
 ### HTTP 메시지
 * 요청 메시지
+  
 ![요청](https://github.com/hjYoon66/Backend_Bootcamp/assets/101798354/7a04af76-5911-41eb-a970-957a54188482)
 
 * 응답 메시지
+  
 ![응답](https://github.com/hjYoon66/Backend_Bootcamp/assets/101798354/c8cb8ec7-772b-4bc8-8cad-b0c2e8d7580f)
 
 
