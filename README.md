@@ -11,11 +11,8 @@
    프론트엔드 개발자, 기획자와 소통하며 업무 수행. API 문서를 직접 작성해보며 업무 프로세스 이해
 
 ## 과제 🖱️
-<<<<<<< HEAD
 - [1주차 과제](documents/1주차_README.md)
 - [2주차 과제](documents/2주차_README.md)
-=======
-- [1주차 과제](./documents/1주차_README.md)
-- [2주차 과제](./documents/2주차_README.md)
->>>>>>> 89197c8504c884392ae2aca540da417f07a2f009
+- [3주차 과제](documents/3주차_README.md)
+
 
