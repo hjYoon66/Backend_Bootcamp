@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yoon.settingweb_boot.dao.StatisticMapper">
+<!--    년별 접속자수-->
+    <select id="selectYearLogin" parameterType="string" resultType="java.util.HashMap">
+        select count(*) as totCnt
+        from statistic.requestinfo ri
+        where left(ri.createDate, 2) = #{year};
+    </select>
+<!--    월별 접속자 수-->
+    <select id="selectYearMonthLogin" parameterType="string" resultType="java.util.HashMap">
+        select count(*) as totCnt
+        from statistic.requestinfo ri
+        where left(ri.createDate, 4) = #{yearMonth};
+    </select>
+<!--    년월일별 접속자 수-->
+    <select id="selectYearMonthDayLogin" parameterType="string" resultType="java.util.HashMap">
+        select count(*) as totCnt
+        from statistic.requestinfo ri
+        where left(ri.createDate, 6) = #{yearMonthDay};
+    </select>
+<!--    평균 하루 로그인 수-->
+    <select id="selectAverageDailyLogin" parameterType="string" resultType="double">
+        SELECT
+                (SELECT COUNT(*) FROM statistic.requestinfo) /
+                (SELECT COUNT(DISTINCT LEFT(createDate, 6)) FROM statistic.requestinfo) as avgDailyLogin;
+    </select>
+<!--    휴일을 제외한 로그인 수-->
+
+
+
+</mapper>
