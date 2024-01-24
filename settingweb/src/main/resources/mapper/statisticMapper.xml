@@ -23,10 +23,10 @@
         where left(ri.createDate, 6) = #{yearMonthDay};
     </select>
 <!--    평균 하루 로그인 수-->
-    <select id="selectAverageDailyLogin" parameterType="string" resultType="double">
+    <select id="getAvgDailyLogin" resultType="java.lang.Double">
         SELECT
                 (SELECT COUNT(*) FROM statistic.requestinfo) /
-                (SELECT COUNT(DISTINCT LEFT(createDate, 6)) FROM statistic.requestinfo) as avgDailyLogin;
+                (SELECT COUNT(DISTINCT LEFT(createDate, 6)) FROM statistic.requestinfo) AS avgDailyLogin
     </select>
 <!--    휴일을 제외한 로그인 수-->
 
