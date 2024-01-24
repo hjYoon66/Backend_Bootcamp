@@ -1,12 +1,15 @@
 package com.yoon.settingweb_boot.dao;
-import java.util.HashMap;
 
-import com.yoon.settingweb_boot.dto.StatisticDto;
+import com.yoon.settingweb_boot.dto.StatisticYearDto;
+import com.yoon.settingweb_boot.dto.StatisticYearMonthDayDto;
+import com.yoon.settingweb_boot.dto.StatisticYearMonthDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 
 public interface  StatisticMapper {
-    public HashMap<String, Object> selectYearLogin(String year);
+    public StatisticYearDto selectYearLogin(String year);
+    public StatisticYearMonthDto selectYearMonthLogin(String yearMonth);
+    public StatisticYearMonthDayDto selectYearMonthDayLogin(String yearMonthDay);
 
 }

@@ -5,19 +5,19 @@
 
 <mapper namespace="com.yoon.settingweb_boot.dao.StatisticMapper">
 <!--    년별 접속자수-->
-    <select id="selectYearLogin" parameterType="string" resultType="java.util.HashMap">
+    <select id="selectYearLogin" parameterType="string" resultType="com.yoon.settingweb_boot.dto.StatisticYearDto">
         select count(*) as totCnt
         from statistic.requestinfo ri
         where left(ri.createDate, 2) = #{year};
     </select>
 <!--    월별 접속자 수-->
-    <select id="selectYearMonthLogin" parameterType="string" resultType="java.util.HashMap">
+    <select id="selectYearMonthLogin" parameterType="string" resultType="com.yoon.settingweb_boot.dto.StatisticYearMonthDto">
         select count(*) as totCnt
         from statistic.requestinfo ri
         where left(ri.createDate, 4) = #{yearMonth};
     </select>
 <!--    년월일별 접속자 수-->
-    <select id="selectYearMonthDayLogin" parameterType="string" resultType="java.util.HashMap">
+    <select id="selectYearMonthDayLogin" parameterType="string" resultType="com.yoon.settingweb_boot.dto.StatisticYearMonthDayDto">
         select count(*) as totCnt
         from statistic.requestinfo ri
         where left(ri.createDate, 6) = #{yearMonthDay};

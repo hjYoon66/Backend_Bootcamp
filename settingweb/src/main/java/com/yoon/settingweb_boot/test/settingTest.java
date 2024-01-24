@@ -19,21 +19,13 @@ import com.yoon.settingweb_boot.service.StatisticService;
 @Controller
 public class settingTest {
 
-
     @Autowired
     private StatisticService service;
-
-    @ResponseBody
-    @RequestMapping("/sqlyear-statistic")
-    public Map<String, Object> sqltest(String year) throws Exception{
-
-        return service.yearloginNum(year);
-    }
 
     @RequestMapping("/test")
     public ModelAndView test() throws Exception{
         ModelAndView mav = new ModelAndView("test");
-        mav.addObject("name", "devfunpj");
+        mav.addObject("name", "Yoon");
         List<String> resultList = new ArrayList<String>();
         resultList.add("!!!HELLO WORLD!!!");
         resultList.add("설정 TEST!!!");
