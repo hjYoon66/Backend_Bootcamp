@@ -23,12 +23,30 @@
         where left(ri.createDate, 6) = #{yearMonthDay};
     </select>
 <!--    평균 하루 로그인 수-->
-    <select id="getAvgDailyLogin" resultType="java.lang.Double">
+    <select id="getAvgDailyLogin" resultType="com.yoon.settingweb_boot.dto.AverageLoginDto">
         SELECT
                 (SELECT COUNT(*) FROM statistic.requestinfo) /
                 (SELECT COUNT(DISTINCT LEFT(createDate, 6)) FROM statistic.requestinfo) AS avgDailyLogin
     </select>
-<!--    휴일을 제외한 로그인 수-->
+<!--    부서별 월별 로그인 수-->
+    <select id="getLoginCountByYearAndDept" parameterType="string" resultType="com.yoon.settingweb_boot.dto.DepartmentLoginDto">
+        SELECT
+            u.hr_organ,
+            LEFT(ri.createDate, 4) AS yearMonth,
+            COUNT(*) AS loginCount
+        FROM
+            statistic.requestinfo ri
+            JOIN
+            user u ON ri.userId = u.userId
+        WHERE
+            LEFT(ri.createDate, 4) = #{yearMonth}
+          AND u.hr_organ = #{dept}
+        GROUP BY
+            u.hr_organ,
+            LEFT(ri.createDate, 4)
+    </select>
+
+    <!--    휴일을 제외한 로그인 수-->
 
 
 

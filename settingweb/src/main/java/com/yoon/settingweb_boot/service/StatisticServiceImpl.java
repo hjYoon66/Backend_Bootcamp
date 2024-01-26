@@ -1,13 +1,10 @@
 package com.yoon.settingweb_boot.service;
 
-import com.yoon.settingweb_boot.dto.StatisticYearDto;
-import com.yoon.settingweb_boot.dto.StatisticYearMonthDayDto;
-import com.yoon.settingweb_boot.dto.StatisticYearMonthDto;
+import com.yoon.settingweb_boot.dao.StatisticMapper;
+import com.yoon.settingweb_boot.dto.*;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.yoon.settingweb_boot.dao.StatisticMapper;
 
 @Log4j
 @Service
@@ -88,4 +85,47 @@ public class StatisticServiceImpl implements StatisticService {
 
         return retVal;
     }
+
+    @Override
+    public AverageLoginDto averageLogin(){
+        AverageLoginDto retVal = new AverageLoginDto(-999, false); // 기본 생성자에서 totCnt와 isSuccess를 설정
+
+        try {
+            retVal = uMapper.getAvgDailyLogin();
+
+            if (retVal == null) {
+                log.info("getAvgDailyLogin returned null");
+            } else {
+                log.info("getAvgDailyLogin successfully returned: " + retVal.toString());
+                retVal.setIsSuccess(true);
+            }
+        } catch (Exception e) {
+            log.error("Error in getAvgDailyLogin: ", e); // 예외 메시지 외에 스택 추적을 포함
+        }
+
+        return retVal;
+    }
+
+    @Override
+    public DepartmentLoginDto getLoginCountByYearAndDept( String yearMonth,String dept) {
+        DepartmentLoginDto retVal = new DepartmentLoginDto();
+
+        try {
+            retVal = uMapper.getLoginCountByYearAndDept(yearMonth,dept);
+
+            if (retVal == null) {
+                log.info("getLoginCountByYearAndDept returned null");
+            } else {
+                log.info("getLoginCountByYearAndDept successfully returned: " + retVal.toString());
+                retVal.setIsSuccess(true);
+            }
+        } catch (Exception e) {
+            log.error("Error in getLoginCountByYearAndDept: ", e);
+        }
+
+        return retVal;
+    }
+
+
+
 }

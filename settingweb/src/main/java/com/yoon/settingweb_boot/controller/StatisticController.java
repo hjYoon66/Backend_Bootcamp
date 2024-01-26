@@ -1,8 +1,6 @@
 package com.yoon.settingweb_boot.controller;
 
-import com.yoon.settingweb_boot.dto.StatisticYearDto;
-import com.yoon.settingweb_boot.dto.StatisticYearMonthDayDto;
-import com.yoon.settingweb_boot.dto.StatisticYearMonthDto;
+import com.yoon.settingweb_boot.dto.*;
 import com.yoon.settingweb_boot.service.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,5 +28,17 @@ public class StatisticController {
     @RequestMapping("/yearMonthDayLogin")
     public StatisticYearMonthDayDto yearMonthDayLogin(String yearMonthDay) throws Exception{
         return service.yearMonthDayLogin(yearMonthDay);
+    }
+
+    @ResponseBody
+    @RequestMapping("/averageLogin")
+    public AverageLoginDto averageLogin() throws Exception{
+        return service.averageLogin();
+    }
+
+    @ResponseBody
+    @RequestMapping("/departLogin")
+    public DepartmentLoginDto getLoginCountByYearAndDept(String yearMonth,String dept) throws Exception{
+        return service.getLoginCountByYearAndDept(yearMonth, dept);
     }
 }
