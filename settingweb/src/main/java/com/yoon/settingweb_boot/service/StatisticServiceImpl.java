@@ -126,6 +126,26 @@ public class StatisticServiceImpl implements StatisticService {
         return retVal;
     }
 
+    @Override
+    public ExceptHolidayDto getExceptHoliday(){
+        ExceptHolidayDto retVal = new ExceptHolidayDto(); // 기본 생성자에서 totCnt와 isSuccess를 설정
+
+        try {
+            retVal = uMapper.getExceptHoliday();
+
+            if (retVal == null) {
+                log.info("getExceptHoliday returned null");
+            } else {
+                log.info("getExceptHoliday successfully returned: " + retVal.toString());
+                retVal.setIsSuccess(true);
+            }
+        } catch (Exception e) {
+            log.error("Error in getExceptHoliday: ", e); // 예외 메시지 외에 스택 추적을 포함
+        }
+
+        return retVal;
+    }
+
 
 
 }

@@ -12,5 +12,6 @@ public interface  StatisticMapper {
     public StatisticYearMonthDayDto selectYearMonthDayLogin(String yearMonthDay);
     public AverageLoginDto getAvgDailyLogin();
     public DepartmentLoginDto getLoginCountByYearAndDept(@Param("yearMonth") String yearMonth, @Param("dept") String dept );
+    public ExceptHolidayDto getExceptHoliday();
 
 }

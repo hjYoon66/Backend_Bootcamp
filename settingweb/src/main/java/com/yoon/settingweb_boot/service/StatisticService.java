@@ -9,5 +9,6 @@ public interface StatisticService {
     public AverageLoginDto averageLogin();
 
     public DepartmentLoginDto getLoginCountByYearAndDept(String yearMonth,String dept );
+    public ExceptHolidayDto getExceptHoliday();
 
 }

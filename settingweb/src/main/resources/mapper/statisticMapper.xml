@@ -46,8 +46,15 @@
             LEFT(ri.createDate, 4)
     </select>
 
-    <!--    휴일을 제외한 로그인 수-->
-
+    <!--    휴일을 제외한 로그인 수 -->
+    <select id="getExceptHoliday" resultType="com.yoon.settingweb_boot.dto.ExceptHolidayDto">
+        SELECT COUNT(*) AS exceptHoliday
+        FROM requestinfo
+        WHERE LEFT(createdate, 6) NOT IN (
+            SELECT LEFT(holiday, 6)
+            FROM holidays
+            );
+    </select>
 
 
 </mapper>

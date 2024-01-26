@@ -41,4 +41,10 @@ public class StatisticController {
     public DepartmentLoginDto getLoginCountByYearAndDept(String yearMonth,String dept) throws Exception{
         return service.getLoginCountByYearAndDept(yearMonth, dept);
     }
+
+    @ResponseBody
+    @RequestMapping("/exceptHoliday")
+    public ExceptHolidayDto getExceptHoliday() throws Exception{
+        return service.getExceptHoliday();
+    }
 }
